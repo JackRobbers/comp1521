@@ -1,8 +1,7 @@
-#include <stdio.h>
 
-char *s1 = "abc";
+extern char *s1 = "abc";
 
-int main(void) {
+void var(void) {
   char *s2 = "def";
   // ...
 }
