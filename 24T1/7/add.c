@@ -3,6 +3,6 @@
 
 int main(void) {
     int16_t a = 30000;
-    int16_t sum = a + a;
-    printf("%d\n", sum);
+    // int32_t sum = a + a + a;
+    printf("%d\n", a + a);
 }

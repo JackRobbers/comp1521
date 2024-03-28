@@ -2,7 +2,10 @@
 #include <math.h>
 
 int main(void) {
-    float a = 12.3;
-    printf("%f\n", a);
+    float a = 10.0;
+    while (a < INFINITY) {
+        a *= a;
+        printf("%f\n", a);
+    }
     return 0;
 }

@@ -1,0 +1,84 @@
+0x0013
+0b0000 0000 0001 0011
+19
+
+0x1234
+0b0001 0010 0011 0100
+4 + 16 + 32 + 512
+564
+
+0xffff
+0b1111 1111 1111 1111
+since there is a 1 in leftmost bit,
+negate and add 1
+negation:
+0b0000 0000 0000 0000
+add 1
+0b0000 0000 0000 0001
+-1 * 1
+-1
+
+0x8000
+0b1000 0000 0000 0000
+negate:
+0b0111 1111 1111 1111
+add 1:
+0b1000 0000 0000 0000
+-1 * 32768
+-32768
+
+-5
+obtain the binary representation of
+the positive number
+0b0000 0000 0000 0101
+negate:
+0b1111 1111 1111 1010
+add 1:
+0b1111 1111 1111 1011
+---
+negate:
+0b0000 0000 0000 0100
+add 1:
+0b0000 0000 0000 0101
+back at 5!
+final answer -5
+
+----
+
+ieee 754 - standard for floats
+32 bits. 
+
+1024
+1.024 * 10^3
+
+analogous to scientific notation
+but with powers of 2
+
+2.5
+1.25 * 2
+
+1 bit sign
+8 bits exponent - unsigned 8 bits.
+23 bits fractional part
+
+(-1)^sign * (1 + frac) * 2^(exponent-127)
+exponent as decimal
+
+e.g
+frac is 01010...0
+0 * 2^-1 + 1 * 2^-2 + 0 * 2^-3 + 1 * 2^-4
+1/4 + 1^16
+5/16
+0.3125
+exponent is 10000001
+130
+2^(130-127)
+2^3
+8
+sign is 1
+(-1)^1 = -1
+
+-1 * 1.3125 * 8
+-2.5
+
+
