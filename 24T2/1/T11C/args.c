@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
-    for (int i = 0; i < argc; i++) {
-        printf("%s\n", argv[i]);
-    }
+    printf("args: %d\n", argc);
+    printf("first argument: %s\n", argv[1]);
     return 0;
 }
