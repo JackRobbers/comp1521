@@ -1,0 +1,96 @@
+8 in decimal
+hex, octal, binary
+
+hex - 0x8
+octal - 010
+binary - 0b1000
+
+100
+hex - 0x64
+octal - 0144
+binary - 0b01100100
+
+bitwise or
+0b1010 | 
+0b1100 =
+0b1110
+
+bitwise and
+0b1010 & 
+0b1100 = 
+0b1000
+
+bitwise xor
+0b1010 ^ 
+0b1100 =
+0b0110
+
+bitwise negation
+~0b1010 =
+ 0b0101
+
+right shift
+0b10011100 >> 3 =
+0b00010011
+
+left shift
+0b10011100 << 3 =
+0b11100000
+
+----
+bitwise usecases
+
+masking / bitmasking
+0b10001110
+want to know if the 4th lsb is 1 or 0?
+0b10001110 &
+0b00001000 = 
+0b00001000
+
+0b10110110 &
+0b00001000 = 
+0b00000000
+
+want to just get the last 4 digits of a number
+0b10010111 &
+0b00001111 =
+0b00000111
+
+need a 4 digit mask 0xF
+
+
+or is useful for turning on bits
+want to turn on the 3rd bit
+0b1001 |
+0b0100 =
+0b1101
+
+xor to toggle a bit
+0b1001 ^
+0b0100 = 
+0b1101
+
+0b1101 ^
+0b0100 =
+0b1001
+
+
+and + negation to clear a bit
+0b1101 &
+0b1011 =
+0b1001
+
+rewrite as 
+0b1101 & ~0b0100 =
+0b1101 & 0b1011 =
+0b1001
+
+usefulness of left and right shift
+what are each of the digits in a number?
+// 0b1011 >> 2 & 1 =
+// 0b0010 & 1 =
+// 0b0000
+int number = 0b1011;
+for (int i = 0; i < 4; i++) {
+    printf("%d\n", number >> i & 1);
+}
