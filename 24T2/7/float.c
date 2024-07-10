@@ -2,10 +2,10 @@
 #include <math.h>
 
 int main(void) {
-    float a = 1.0;
+    float a = 2.0;
 
-    while (a < ) {
-        a = a * 5;
+    while (a < INFINITY) {
+        a = -a / 0;
 
         printf("%f\n", a);
     }

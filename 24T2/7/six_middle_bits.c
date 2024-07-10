@@ -10,7 +10,7 @@ uint32_t six_middle_bits(uint32_t num) {
     num <<= 13;
     // mmmmmmmxx xxxxxxxx x0000000 0000000
     num >>= 26
-    // 000000000000000000000000000000mmmmmm
+// 000000000000000000000000000000mmmmmm
     return num; 
 
 
