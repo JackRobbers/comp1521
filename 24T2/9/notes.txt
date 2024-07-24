@@ -3,3 +3,19 @@ rwxr-x---
 translates to: 
 
 0750
+
+------
+
+rwxr-xr-x (binaryish) -> 0755 (octal)
+owner, group, others
+
+0 -> ---
+1 -> --x
+2 -> -w-
+3 -> -wx
+4 -> r--
+5 -> r-x
+6 -> rw-
+7 -> rwx
+
+used for chmod command or chmod() function use the octal format
