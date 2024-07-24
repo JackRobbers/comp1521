@@ -1,0 +1,5 @@
+rwxr-x---
+
+translates to: 
+
+0750

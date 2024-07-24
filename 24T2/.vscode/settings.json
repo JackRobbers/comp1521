@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "ratio": "c"
+        "ratio": "c",
+        "string.h": "c",
+        "stdlib.h": "c"
     }
 }
