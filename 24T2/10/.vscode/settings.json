@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "spawn.h": "c",
+        "stdio.h": "c"
+    }
+}

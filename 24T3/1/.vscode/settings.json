@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "functional": "c",
+        "chrono": "c",
+        "stdlib.h": "c"
+    }
+}

@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 }
 
 void chmod_if_needed(char *pathname) {
-    // getting struct stat for the file
+    // get info about the file with stat
     struct stat s;
     int error = stat(pathname, &s);
     if (error == -1) {
@@ -23,16 +23,15 @@ void chmod_if_needed(char *pathname) {
         exit(1);
     }
 
-    // see if the file is publically writeable
-    // printf("%o %d\n", s.st_mode, s.st_mode & S_IWOTH); // 2 -> 0010
-
-    // if it is, make it not publically writeable
+    // see if a file is publically writeable
     if (s.st_mode & S_IWOTH) {
-        printf("%s is no longer publically writeable\n", pathname);
+        // if it is, make is no longer publically writable
+
         chmod(pathname, s.st_mode ^ S_IWOTH);
-        // or could do:
-        // chmod(pathname, s.st_mode & ~S_IWOTH);
+        // or chmod(pathname, s.st_mode & ~S_IWOTH);
+        printf("%s is no longer publically writeable\n", pathname);
     } else {
-        printf("%s was not publically writeable\n", pathname);
+        printf("%s is not publically writeable\n", pathname);
     }
+
 }
