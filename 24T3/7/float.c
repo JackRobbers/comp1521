@@ -3,7 +3,7 @@
 #include <float.h>
 
 int main(void) {
-    float a = 1.5 * FLT_MAX;
+    float a = NAN < 7;
     
     printf("%f\n", a);
 
