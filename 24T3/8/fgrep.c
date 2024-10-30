@@ -1,40 +1,47 @@
 #include <stdio.h>
 #include <string.h>
+#include <errno.h>
 
-#define MAX 100
+#define MAX 1024
 
-void search(char *search, FILE *file, char *filename);
+int errno;
 
-// search given streams for argv[1]
-// stdin if argc < 2, otherwise read from
+void search(FILE *file, char *search_for, char *file_name);
+
+// search the contents of files
+// thing to search for is the first argument
+// arguments after that are files to look in
+// if no files given, look at stdin
+
 int main(int argc, char *argv[]) {
-    // argv[0] is program name
     if (argc < 2) {
-        printf("error, not enough arguments\n");
+        fprintf(stderr, "usage: fgrep search, [file1, file2, ...]\n");
     } else if (argc == 2) {
         // search stdin
-        search(argv[1], stdin, "stdin");
+        search(stdin, argv[1], "stdin");
     } else {
-        // search in argv[2], argv[3], ...
+        // seach each file
         for (int i = 2; i < argc; i++) {
             FILE *file = fopen(argv[i], "r");
             if (file == NULL) {
-                perror("failed to open filem");
+                //perror("Failed to open file");
+                printf("Error \"%s\" when opening %s\n", strerror(errno), argv[i]);
             } else {
-                search(argv[1], file, argv[i]);
+                search(file, argv[1], argv[i]);
             }
         }
     }
 }
 
-void search(char *search, FILE *file, char *filename) {
+void search(FILE *file, char *search_for, char *file_name) {
+    // get the contents of the file, line by line
     char line[MAX];
-    int i = 1;
+    int line_number = 1;
     while (fgets(line, MAX, file) != NULL) {
-        // line contains argv[1]
-        if (strstr(line, search) != NULL) {
-            printf("found on line %d in %s: %s", i, filename, line);
-        };
-        i++;
-    }
+        // strstr checks if line contains search_for
+        if (strstr(line, search_for) != NULL) {
+            printf("found on line %d in %s: %s", line_number, file_name, line);
+        }
+        line_number++;
+    }   
 }
