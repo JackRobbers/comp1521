@@ -1,14 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int get_num(void);
+int *get_num_ptr(void);
 
 int main(void) {
-    int num = get_num();
-    // other code in here could potentially change *num
-    printf("%d\n", num);
+    int *num = get_num_ptr();
+    printf("%d\n", *num);
 }
 
-int get_num(void) {
-    return 42;
+int *get_num_ptr(void) {
+    // in order to use local variables across functions we need malloc
+    int *x = malloc(sizeof(int));
+    *x = 42;
+    return x;
 }

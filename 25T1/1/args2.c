@@ -3,9 +3,9 @@
 
 int main(int argc, char *argv[]) {
     int sum = 0;
-    for (int i = 1; i < argc; i++) {
+    for (int i = 0; i < argc; i++) {
         sum += atoi(argv[i]);
     }
-    printf("%d\n", sum);
+    printf("sum of command-line arguments = %d\n", sum);
     return 0;
 }

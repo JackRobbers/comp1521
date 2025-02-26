@@ -1,13 +1,12 @@
 #include <stdio.h>
-#define MAX_LENGTH 10
+#define STR_LEN 10
 
 int main(void) {
-    char str[MAX_LENGTH];
-    str[0] = 'H';
-    str[1] = 'i';
-    // str[2] = ;
-    char str2[MAX_LENGTH];
+    // char str[STR_LEN];
+    char *str = "HI";
+
+    char str2[STR_LEN];
     str2[0] = '!';
-printf("My message is: %s\n", str);
+    printf("%s", str);
     return 0;
 }
