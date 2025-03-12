@@ -1,0 +1,22 @@
+struct _enrolment {
+    int stu_id;         // e.g. 5012345
+    char course[9]:     // e.g. "COMP1521"
+    char term[5];       // e.g. "17s2"
+    char grade[3];      // e.g. "HD"
+    double mark;        // e.g. 87.3
+}; ~ size_of = 32
+
+struct _enrolment {
+    double mark;        // e.g. 87.3
+    int stu_id;         // e.g. 5012345
+    char course[9]:     // e.g. "COMP1521"
+    char term[5];       // e.g. "17s2"
+    char grade[3];      // e.g. "HD"
+}; size_of = 29
+
+
+typedef struct _node Node;
+struct _node {
+    int value;
+    Node next;
+}; size_of = infinite!
