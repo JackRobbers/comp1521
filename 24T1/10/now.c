@@ -10,10 +10,10 @@ void spawn(char *command[]);
 int main(void) {
     char *command2[] = {"/bin/date", "+%d-%m-%y", NULL}; 
     spawn(command2);
-    char *command[] = {"./now", "+%T", NULL}; 
-    spawn(command);
-    char *command1[] = {"/bin/sleep", "5", NULL}; 
-    spawn(command1);
+    // char *command[] = {"./now", "+%T", NULL}; 
+    // spawn(command);
+    // char *command1[] = {"/bin/sleep", "5", NULL}; 
+    // spawn(command1);
     return 0;
 }
 
