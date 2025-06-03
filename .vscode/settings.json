@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "unistd.h": "c",
-        "functional": "c",
-        "chrono": "c"
-    }
-}
