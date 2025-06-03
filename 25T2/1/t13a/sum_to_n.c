@@ -13,12 +13,24 @@ int main(int argc, char *argv[]) {
         return 0;
 }
 
-iterative version
+// iterative version
+// int sum(int n) {
+//     int result = 0;
+//     for (int i = 0; i <= n; i++) {
+//         result += i;
+//     }
+//     return result;
+// }
+
+// recursive version
+// n -> n + (n - 1) + (n - 2) + ... 1 + 0
 int sum(int n) {
-    int result = 0;
-    for (int i = 0; i <= n; i++) {
-        result += i;
+    if (n == 0) {
+        // base case / final step
+        return 0;
+    } else {
+        // recursive case
+        return n + sum(n - 1);
     }
-    return result;
 }
 
