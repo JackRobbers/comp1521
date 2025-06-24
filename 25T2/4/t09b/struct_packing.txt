@@ -1,0 +1,19 @@
+struct _enrolment {
+    int stu_id;         // e.g. 5012345  -> 4
+    char course[9]:     // e.g. "COMP1521" -> 9
+    char term[5];       // e.g. "17s2" -> 5
+    char grade[3];      // e.g. "HD" -> 3 -> 21 total
+    double mark;        // e.g. 87.3 -> 8, want to word aligned so start at 24
+};
+
+# size is 32, due to packing
+
+struct _enrolment {
+    double mark;        
+    int stu_id;    
+    char course[9]: 
+    char term[5];   
+    char grade[3];      
+};
+
+# now size 29
