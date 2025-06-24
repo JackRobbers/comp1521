@@ -1,0 +1,39 @@
+max
+#   -> [prologue]
+#       -> body
+#       -> loop
+             -> if
+#   -> [epilogue]
+
+max__prologue:
+
+max__body:
+
+max__loop:
+
+max__if:
+
+max__epilogue:
+
+
+struct _enrolment {
+    int stu_id;       4    -> 0
+    char course[9]:   9    -> 4
+    char term[5];     5    -> 13
+    char grade[3];    3 -> 1
+    + 3
+    double mark;      8
+};
+
+-> 29
+-> actually 32
+ 
+
+struct _enrolment {
+    double mark;      8
+    int stu_id;       4    
+    char course[9]:   9  
+    char term[5];     5
+    char grade[3];    3
+};
+-> 29, struct packing
