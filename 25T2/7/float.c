@@ -10,6 +10,6 @@ int main(void) {
 
     float too_big = 100000000000.0;
 
-    printf("%f %f", too_big, too_big + 1);
+    printf("%f %f\n", too_big, too_big + 1);
     return 0;
 }
