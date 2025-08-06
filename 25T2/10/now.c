@@ -1,27 +1,30 @@
+#include <stdio.h>
+#include <unistd.h>
 #include <spawn.h>
 #include <sys/wait.h>
-#include <stdio.h>
-
-int run_command_and_wait(char *command[]) {
+    
+void spawn(char *command[]) {
     pid_t pid;
-    // start a new process
     if (posix_spawn(&pid, command[0], NULL, NULL, command, NULL) != 0) {
-        perror("spawn");
-    };
+        perror(command[0]);
+    }
+
     printf("%d\n", pid);
 
-    // wait for process to finish, blocking
     waitpid(pid, NULL, 0);
 }
 
-
 int main(void) {
-    char *date[] = {"/usr/bin/date", "+%d-%m-%Y", NULL};
-    run_command_and_wait(date);
-    
-    char *whoami[] = {"/usr/bin/whoami", NULL};
-    run_command_and_wait(whoami);
+    printf("%d\n", getpid());
 
-    char *pwd[] = {"/usr/bin/realpath", ".", NULL};
-    run_command_and_wait(pwd);
+    char *sleep[] = {"/usr/bin/sleep", "1", NULL};
+    spawn(sleep);
+
+    char *date[] = {"/usr/bin/date", "+%d-%m-%Y", NULL};
+    spawn(date);
+    char *time[] = {"/usr/bin/date", "+%T", NULL};
+    spawn(time);
+
+
+
 }

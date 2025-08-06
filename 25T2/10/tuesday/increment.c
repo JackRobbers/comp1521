@@ -13,20 +13,21 @@ void *add_5000_to_counter(void *data) {
         pthread_mutex_lock(&mutex);
         global_total++;
         pthread_mutex_unlock(&mutex);
-        // global_total = global_total + 1;
+        // int t0 = global_total; // t0 = 100 // t0 = 100
+        // t0 = t0 + 1;
+        // global_total = t0;
     }
-
-
+    
     return NULL;
 }
 
 int main(void) {
     pthread_t thread1;
     pthread_create(&thread1, NULL, add_5000_to_counter, NULL);
-    
+
     pthread_t thread2;
     pthread_create(&thread2, NULL, add_5000_to_counter, NULL);
-    
+
     pthread_join(thread1, NULL);
     pthread_join(thread2, NULL);
 
