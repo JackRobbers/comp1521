@@ -1,0 +1,28 @@
+struct _enrolment {
+    int stu_id;         // e.g. 5012345
+    char course[9]:     // e.g. "COMP1521"
+    char term[5];       // e.g. "17s2"
+    char grade[3];      // e.g. "HD"
+    double mark;        // e.g. 87.3
+};
+
+4 + 9 + 5 + 3 + 8 = 29
+actuallly the size is 32
+4 + 9 + 5 + 3 = 21 -> 24 + 8 = 32
+
+
+struct _enrolment {
+    int stu_id;         // e.g. 5012345
+    double mark;        // e.g. 87.3
+    char course[9]:     // e.g. "COMP1521"
+    char term[5];       // e.g. "17s2"
+    char grade[3];      // e.g. "HD"
+};
+
+this has a size of 29
+
+OFFSET_STU_ID = 0
+OFFSET_GRADE = 18
+
+la  $t0, struct_enrollment
+lb  $t1, OFFSET_GRADE($t0)
