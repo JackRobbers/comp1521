@@ -1,0 +1,8 @@
+dec, 8 bit binary, 3 digit octal, 2 digit hexadecimal
+
+1,    0b00000001, 0001, 0x01
+8,    0b00001000, 0010, 0x08
+100,  0b01100100
+
+100 - 64 = 36
+36 - 32 = 4
