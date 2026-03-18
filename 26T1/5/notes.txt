@@ -1,0 +1,87 @@
+dec: 1
+bin: 0b00000001
+hex: 0x01
+
+dec: 10
+bin: 0b00001010
+hex: 0b0A
+
+dec: 243
+bin: 0b11110011
+hex: 0xF3
+
+dec: 100 -> 36 -> 4 -> 0
+bin: 0b01100100
+hex: 0x64
+
+
+bitwise
+
+turn on a specific bit: use or
+
+int a = 1; -> using 32 bits.
+
+use 3rd bit means that the program is running
+
+uint8_t config = 0b00000001 
+
+config = config | 0b00001000
+// 0b00000001 |
+// 0b00001000 ==
+// 0b00001001
+
+// really make sure config is on!
+config = config | 0b00001000
+// 0b00001001 |
+// 0b00001000 ==
+// 0b00001001
+
+// toggle a bit: xor
+// toggle the 3rd bit
+config = config ^ 0b00001000
+// 0b00001001 ^
+// 0b00001000 ==
+// 0b00000001
+
+config = config ^ 0b00001000
+// 0b00000001 ^
+// 0b00001000 ==
+// 0b00001001
+
+// get the lower 8 bits of a number: and (masking off)
+uint16_t num = 0xFAF1; // 0b 11111010 11110001
+num & 0b0000000011111111
+// 0b1111101011110001 &
+// 0b0000000011111111 ==
+// 0b0000000011110001
+
+// clear out a num: & ~
+
+negate just flips all the bits
+~0b10101111 == 
+ 0b01010000
+
+config = config & ~0b00001000
+// 0b00001001 & ~0b00001000 ==
+// 0b00001001 & 
+// 0b11110111 ==
+// 0b00000001
+
+want to move bits around: left and right shift
+
+0b01111000 >> 2 ==
+0b00011110
+
+0b00011110 << 4 ==
+0b11100000 
+
+
+0b00000001 << 2 ==
+0b00000100
+
+0b00001010 << 1 ==
+0b00010100
+
+6 * n
+(4 + 2) * n
+4n + 2n
