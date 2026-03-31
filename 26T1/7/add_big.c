@@ -3,7 +3,7 @@
 
 int main(void) {
     uint16_t a = 30000;
-    uint16_t b = 40000;
+    uint16_t b = 40000; 
     uint16_t res = a + b;
 
     printf("%d\n", res);
