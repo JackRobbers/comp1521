@@ -2,9 +2,9 @@
 #include <stdint.h>
 
 int main(void) {
-    uint16_t a = 30000;
-    uint16_t b = 40000; 
-    uint16_t res = a + b;
+    uint8_t a = 3;
+    uint8_t b = 4; 
+    uint8_t res = a + b;
 
-    printf("%d\n", res);
+    printf("%d0000\n", res);
 }
