@@ -1,0 +1,30 @@
+struct _enrolment {     
+                        // size | offset 
+    int stu_id;         // -> 4 | 0
+    char course[9]:     // -> 9 | 4
+    char term[5];       // -> 5 | 13
+    char grade[3];      // -> 3 | 18
+    double mark;        // -> 8 | 24 not 21 due to word alignment
+}; -> sizeof(struct _enrolment) -> 32
+
+struct _enrolment {     
+                        // size | offset 
+    double mark;        // -> 8 | 0
+    int stu_id;         // -> 4 | 8
+    char course[9]:     // -> 9 | 12
+    char term[5];       // -> 5 | 21
+    char grade[3];      // -> 3 | 26
+}; -> sizeof(struct _enrolment) -> 29
+
+typedef struct _node Node;
+struct _node {
+    int value;
+    Node *next;
+}; -> sizeof = 8
+
+typedef struct _node Node;
+struct _node {
+    int value;
+    Node next;
+}; -> sizeof = error!
+
