@@ -1,0 +1,26 @@
+struct _coord {
+    double x; -> 0
+    double y; -> 8
+}; -> 8 + 8 -> 16
+
+typedef struct _node Node;
+struct _node {
+    int value; -> 0
+    Node *next; -> 4
+}; 4 + 4 -> 8
+
+typedef struct _node Node;
+struct _node {
+    int value;
+    Node next;
+}; 4 + 4 
+
+// indirection can avoid infinite data types
+
+struct _enrolment {
+    int stu_id;         // 0
+    char course[9]:     // 4
+    char term[5];       // 13
+    char grade[3];      // 18
+    double mark;        // 21, 24
+}; 4 + 9 + 5 + 3 + 8 -> 29 byte, actually 32 bytes
