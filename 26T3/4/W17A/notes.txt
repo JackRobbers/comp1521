@@ -1,0 +1,32 @@
+struct _coord {
+    double x; // offset 0, size 8
+    double y; // offset 8, size 8
+} -> total size: 16
+
+typedef struct _node Node;
+struct _node {
+    int value; // offset 0, size 4
+    Node *next; // offset 4, size 4
+}; -> total size: 8
+
+typedef struct _node Node;
+struct _node {
+    int value; // offset 0, size 4
+    Node next; // offset 4, size ?
+}; -> total size: invalid since unsized 
+
+struct _enrolment {
+    int stu_id;         // offset 0: size 4
+    char course[9]:     // offset 4, size 9
+    char term[5];       // offset 13, size 5
+    char grade[3];      // offset 18, size 3
+    double mark;        // offset 24 (not 21) size 8
+}; -> 29. actual size is 32
+
+struct _enrolment {
+    int stu_id;         // e.g. 5012345
+    double mark;        // e.g. 87.3
+    char course[9]:     // e.g. "COMP1521"
+    char term[5];       // e.g. "17s2"
+    char grade[3];      // e.g. "HD"
+}; -> size 29. 
