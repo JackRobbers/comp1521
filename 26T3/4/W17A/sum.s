@@ -50,7 +50,7 @@ sum4:
 	move	$a1, $s0
 	jal	sum2
 
-2
+
 	pop	$s3
 	pop	$s2
 	pop	$s0
