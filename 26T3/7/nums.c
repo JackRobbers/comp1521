@@ -6,9 +6,10 @@ int main(void) {
 
     int a = 10; // signed 4 byte number (depends on computer/architecture)
 
-    uint8_t b = -12; // unsigned 1 byte number (0, 255)
-    int8_t c = -12; // signed 1 byte number (-128, 127)
+    uint8_t b = -12; // unsigned 1 byte number (0, 255), (0, 2^n - 1)
+    int8_t c = -12; // signed 1 byte number (-128, 127), (-2^(n-1), 2^(n-1) -1)
 
+    printf("%d %d\n", b, c);
     // negative number
     // 0b00001100
     // ~(0b00001100) + 1 ==
@@ -41,6 +42,5 @@ int main(void) {
 // ~(0b11110100) + 1 ==
 //  (0b00001011) + 1 ==
 //  (0b00001100)
-    printf("%d %d\n", b, c);
   
 }
