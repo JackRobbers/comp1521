@@ -1,33 +1,45 @@
-// print the first line of argv[1] to stdout
-// all error checking
-// expect exactly 1 command line argument
-
+// get the first line from argv[1]
+// print it out
+// all the error checking
+// only allow 1 filename
+// usage: ./first_line file
 
 #include <stdio.h>
 
 #define LENGTH 1024
+
 int main(int argc, char *argv[]) {
-    if (argc < 2 || argc > 2) {
-        fprintf(stderr, "Wrong number of args, expected one filename only\n");
+    if (argc < 2) {
+        fprintf(stderr, "Not enough args\n");
         return 1;
-    } 
-    
+    } else if (argc > 2) {
+        fprintf(stderr, "Too many args\n");
+        return 1;
+    }
+
+    // open the file
     FILE *file = fopen(argv[1], "r");
     if (file == NULL) {
         perror(argv[1]);
         return 1;
     }
 
-    // if the code gets to here:
-    // there is only 1 argument
-    // that argument is a valid file and we have pointer to it
-
+    // get the line
     char line[LENGTH];
     if (fgets(line, LENGTH, file) == NULL) {
-        fprintf(stderr, "Empty file!\n");
+        fprintf(stderr, "File is empty\n");
         return 1;
     }
 
+    // print the first line
+    fputs(line, stdout);
+    fseek(file, -10, SEEK_END);
+    if (fgets(line, LENGTH, file) == NULL) {
+        fprintf(stderr, "File is empty\n");
+        return 1;
+    }
+
+    // print the first line
     fputs(line, stdout);
 
     return 0;
